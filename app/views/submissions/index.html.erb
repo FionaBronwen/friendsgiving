@@ -45,7 +45,7 @@
               <h4 class="modal-title" id="myModalLabel">What you bringin?!</h4>
             </div>
             <div class="modal-body">
-              <%= form_for @submission, url: home_index_path(@submission) do |f| %>
+              <%= form_for @submission do |f| %>
                 <div class="form-group">
                   <%= f.label :name, class: "control-label" %>:
                   <%= f.text_field :name, class: "form-control" %>
