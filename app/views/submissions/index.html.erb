@@ -21,7 +21,14 @@
             <% @submissions.each do |submission| %>
             <tr>
               <td><%= submission.name %></td>
-              <td><%= submission.contribution %></td>
+              <td><%= submission.contribution %>
+                <span class="pull-right">
+                  <%= link_to edit_submission_path(submission) do %> 
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  <% end %>   
+                </span>
+              </td>
+
             </tr>
             <% end %>
             <% end %>
@@ -48,18 +55,17 @@
               <%= form_for @submission do |f| %>
                 <div class="form-group">
                   <%= f.label :name, class: "control-label" %>:
-                  <%= f.text_field :name, class: "form-control" %>
+                  <%= f.text_field :name, class: "form-control", placeholder: "William Huang" %>
                 </div>
                 <div class="form-group">
                   <%= f.label :contribution %>:
-                  <%= f.text_area :contribution, rows:5, class:"form-control" %>
+                  <%= f.text_area :contribution, rows:5, class:"form-control", placeholder: "Mashed potatoes, A bottle of wine, napkins" %>
                 </div>
                       
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               <%= f.submit 'Submit', class:"btn btn-primary" %>
-              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
             </div>
             <% end %>
           </div>
