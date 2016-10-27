@@ -20,8 +20,13 @@ class SubmissionsController < ApplicationController
 
 	def update
 		update = Submission.find(params[:id]).update(submission_params)
-		flash[:danger] = "some message"
-		redirect_to root_path
+		if update 
+			flash[:warning] = 'Lit Update! Lit. 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥'
+			redirect_to root_path
+		else 
+			flash[:danger] = 'Nah fam, you need to contribute 😒🖕'
+			redirect_to edit_submission_path(params[:id])
+		end
 	end
 
 	def destroy
