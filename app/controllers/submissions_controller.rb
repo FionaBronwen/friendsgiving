@@ -6,8 +6,12 @@ class SubmissionsController < ApplicationController
 
 	def create
 		@submission = Submission.new(submission_params)
-		@submission.save
-		redirect_to root_path
+		if @submission.save
+			flash[:warning] = "Thank you for your lit contribution 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥"
+		else
+			flash[:danger] = @submission.errors.full_messages
+		end
+		redirect_to
 	end
 
 	def edit
@@ -15,7 +19,8 @@ class SubmissionsController < ApplicationController
 	end
 
 	def update
-		Submission.find(params[:id]).update(submission_params)
+		update = Submission.find(params[:id]).update(submission_params)
+		flash[:danger] = "some message"
 		redirect_to root_path
 	end
 
