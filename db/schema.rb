@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026023329) do
+ActiveRecord::Schema.define(version: 20181109025118) do
+
+  create_table "parties", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "submissions", force: :cascade do |t|
     t.string   "name"
     t.string   "contribution"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "party_id"
+    t.index ["party_id"], name: "index_submissions_on_party_id"
   end
 
 end
