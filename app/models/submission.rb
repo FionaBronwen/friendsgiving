@@ -1,5 +1,4 @@
 class Submission < ApplicationRecord
-	belongs_to :party
-
+	validates_uniqueness_of :name
 	validates_presence_of :name, :contribution
 end
