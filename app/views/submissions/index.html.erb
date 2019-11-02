@@ -7,7 +7,7 @@
     </div>
     <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6">
       <% if @submissions.empty? %>
-      <p class="text-center">No on is signed up yet! 😰</p>
+      <p class="text-center">No one is bringing anything yet! 😰</p>
       <%else%>
       <div class="table-responsive">
         <table class="table table-hover">
@@ -23,9 +23,9 @@
               <td><%= submission.name %></td>
               <td><%= submission.contribution %>
                 <span class="pull-right">
-                  <%= link_to edit_submission_path(submission) do %> 
+                  <%= link_to edit_submission_path(submission) do %>
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                  <% end %>   
+                  <% end %>
                 </span>
               </td>
             </tr>
@@ -60,7 +60,7 @@
                   <%= f.label :contribution %>:
                   <%= f.text_area :contribution, rows:5, class:"form-control", placeholder: "Mashed potatoes, A bottle of wine, napkins" %>
                 </div>
-                      
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
